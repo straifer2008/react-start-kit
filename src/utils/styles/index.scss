@@ -1,4 +1,12 @@
+@import "variables";
+
 html, body {
 	margin: 0;
 	padding: 0;
+	color: $text-primary;
+	font-family: $ff-cursive;
+}
+
+a {
+	text-decoration: none;
 }

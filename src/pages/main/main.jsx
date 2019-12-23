@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@material-ui/core';
+import { Container, Button } from '@material-ui/core';
 
 const Main = ({ logout, user }) => (
-  <div>
-    Main
+  <Container>
+    <h1>Main</h1>
     {user && <p>{JSON.stringify(user)}</p>}
     <Button onClick={logout} variant="outlined">logout</Button>
-  </div>
+  </Container>
 );
 
 Main.defaultProps = {

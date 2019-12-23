@@ -1,3 +1,1 @@
-export default {
-  GET_ESTIMATES: 'GET_ESTIMATES',
-};
+export default {};

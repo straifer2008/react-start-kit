@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import './styles.scss';
 
-const NotFoundPage = ({ history }) => (
+const NotFoundPage = () => (
   <div className="notFoundPage">
     <svg
       version="1.1"
@@ -950,19 +950,16 @@ const NotFoundPage = ({ history }) => (
       </g>
     </svg>
 
-    <Button
-      className="notFoundPage_back"
-      variant="outlined"
-      color="secondary"
-      onClick={history.goBack}
-    >
-      Back
-    </Button>
+    <Link to="/">
+      <Button
+        className="notFoundPage_back"
+        variant="outlined"
+        color="secondary"
+      >
+        Home
+      </Button>
+    </Link>
   </div>
 );
-
-NotFoundPage.propTypes = {
-  history: PropTypes.object.isRequired,
-};
 
 export default NotFoundPage;
