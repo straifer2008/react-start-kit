@@ -21,6 +21,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "camelcase": ["error", { "ignoreDestructuring": true, "properties": "never"}],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "react/forbid-prop-types": [1, { "forbid": [], "checkContextTypes": true, "checkChildContextTypes": true }]
+    "react/forbid-prop-types": [1, { "forbid": [], "checkContextTypes": true, "checkChildContextTypes": true }],
+    "react/no-array-index-key": 0,
+    "react/jsx-props-no-spreading": 0
   }
 }

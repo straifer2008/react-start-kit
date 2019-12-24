@@ -1,11 +1,11 @@
-import Main from './main';
 import Auth from './auth';
 import Roles from './roles';
 import Estimates from './estimates';
+import Clients from './clients';
 
 export {
-  Main,
-  Auth,
   Roles,
   Estimates,
+  Auth,
+  Clients,
 };

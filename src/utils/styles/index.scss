@@ -1,5 +1,7 @@
 @import "variables";
 @import "flex";
+@import "wrap";
+@import "positions";
 
 html, body {
 	margin: 0;
@@ -10,4 +12,30 @@ html, body {
 
 a {
 	text-decoration: none;
+}
+
+h1, h2, h3,h4, h5, h6 {
+	margin: 0;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: $color-material-blue;
+	border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }

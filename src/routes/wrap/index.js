@@ -1,12 +1,11 @@
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { userAction } from '../../store/user';
-import Main from './main';
+import Wrap from './wrap';
 
-const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = { logout: userAction.logout };
 
 const enhance = compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(null, mapDispatchToProps),
 );
-export default enhance(Main);
+export default enhance(Wrap);
