@@ -1,23 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import {
+  Avatar, Box,
   Button,
-  Box,
-  TextField,
-  Avatar,
-  CssBaseline,
-  FormControlLabel,
-  Checkbox,
-  Grid,
-  Typography,
   Container,
+  CssBaseline,
+  Grid,
+  TextField,
+  Typography,
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Copyright } from '../../../components';
+import { Link } from 'react-router-dom';
 import useStyles from '../../../utils/styles/useStyles';
+import { Copyright } from '../../../components';
 
-const Login = ({
+const ForgotPassword = ({
   handleSubmit,
   values,
   touched,
@@ -32,7 +29,7 @@ const Login = ({
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}><LockOutlinedIcon /></Avatar>
-        <Typography component="h1" variant="h5">Sign in</Typography>
+        <Typography component="h1" variant="h5">Forgot password</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
             onChange={handleChange}
@@ -49,26 +46,6 @@ const Login = ({
             name="email"
             autoComplete="email"
           />
-          <TextField
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}
-            error={!!errors.password && !!touched.password}
-            helperText={!!errors.password && errors.password}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox onChange={handleChange} value={values.remember} name="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
@@ -77,44 +54,37 @@ const Login = ({
             className={classes.submit}
             onClick={handleSubmit}
           >
-            Sign In
+          Forgot password
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link to="/forgot-password" variant="body2">Forgot password?</Link>
-            </Grid>
-            <Grid item>
-              <Link to="/register" variant="body2">Do not have an account? Sign Up</Link>
-            </Grid>
-          </Grid>
+          <Grid container><Grid item><Link to="/login" variant="body2">Back</Link></Grid></Grid>
         </form>
       </div>
-      <Box mt={8}><Copyright /></Box>
+      <Box mt={5}><Copyright /></Box>
     </Container>
   );
 };
 
-Login.defaultProps = {
+ForgotPassword.defaultProps = {
+  values: {
+    email: '',
+  },
   touched: {},
   errors: {},
 };
-Login.propTypes = {
+
+ForgotPassword.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
   values: PropTypes.shape({
     email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    remember: PropTypes.bool,
-  }).isRequired,
+  }),
   touched: PropTypes.shape({
     email: PropTypes.bool,
-    password: PropTypes.bool,
   }),
   errors: PropTypes.shape({
     email: PropTypes.string,
-    password: PropTypes.string,
   }),
-  handleChange: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
 };
 
-export default Login;
+export default ForgotPassword;

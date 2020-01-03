@@ -7,17 +7,16 @@ import axiosMiddleware from 'redux-axios-middleware';
 import logger from 'redux-logger';
 import axios from 'axios';
 import axiosMiddlewareOptions from '../utils/helpers/axiosMiddlewareOptions';
-import reducer from './index';
+import reducer from '.';
 
 const history = createBrowserHistory();
 
 const client = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   responseType: 'json',
   headers: { 'Content-Type': 'application/json' },
-});
-client.interceptors.request.use((config) => {
-  const token = localStorage.getItem(process.env.TOKEN_NAME);
+}).interceptors.request.use((config) => {
+  const token = localStorage.getItem(process.env.REACT_APP_TOKEN_KEY);
 
   config.headers.Authorization = token ? `Bearer ${token}` : '';
   return config;

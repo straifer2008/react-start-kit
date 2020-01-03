@@ -12,6 +12,7 @@ const Routes = () => (
   <Switch>
     <Route component={noAuthenticated(Auth.Login)} path="/login" />
     <Route component={noAuthenticated(Auth.Register)} path="/register" />
+    <Route component={noAuthenticated(Auth.ForgotPassword)} path="/forgot-password" />
     <Route component={noAuthenticated(Auth.ResetPassword)} path="/reset-password" />
 
     <Route component={isAuthenticated(Wrap)} path="/" />
