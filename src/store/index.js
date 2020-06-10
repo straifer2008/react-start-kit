@@ -6,9 +6,9 @@ import storage from 'redux-persist/lib/storage';
 
 import ui from './ui';
 import user from './user';
-// import estimates from './estimates';
+import estimates from './estimates';
 
-const uiPersistConfig = { key: 'ui', storage };
+const uiPersistConfig = { key: 'ui', storage, blacklist: ['notification'] };
 const userPersistConfig = { key: 'user', storage };
 // const estimatesPersistConfig = { key: 'estimates', storage };
 
@@ -16,7 +16,7 @@ const rootReducer = (history) => combineReducers({
   router: connectRouter(history),
   ui: persistReducer(uiPersistConfig, ui),
   user: persistReducer(userPersistConfig, user),
-  // estimates: persistReducer(estimatesPersistConfig, estimates),
+  estimates,
 });
 
 export default rootReducer;

@@ -1,0 +1,17 @@
+.estimatesInput {
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
+  outline: none;
+  transition: 350ms background-color ease-in-out;
+  padding: 10px 5px;
+  font-size: 18px;
+  border-radius: 3px;
+  &:focus {
+    background-color: #fff;
+  }
+}
+
+.MuiPaper-elevation1 {
+  box-shadow: 0 0 5px rgba(0,0,0,.3) !important;
+}

@@ -1,7 +1,7 @@
 import reducer from './reducer';
 import * as estimatesAction from './action';
 import * as estimatesOperation from './operation';
-import * as estimatesTypes from './types';
+import estimatesTypes from './types';
 
 export {
   estimatesAction,

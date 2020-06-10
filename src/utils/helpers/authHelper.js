@@ -5,14 +5,14 @@ const locationHelper = locationHelperBuilder({});
 
 const isAuthenticated = connectedRouterRedirect({
   redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/login',
-  authenticatedSelector: ({ user }) => !!user && !!user.id,
+  authenticatedSelector: ({ user: { token } }) => !!token,
   allowRedirectBack: false,
   wrapperDisplayName: 'isAuthenticated',
 });
 
 const noAuthenticated = connectedRouterRedirect({
   redirectPath: (state, ownProps) => locationHelper.getRedirectQueryParam(ownProps) || '/',
-  authenticatedSelector: ({ user }) => !user || !user.id,
+  authenticatedSelector: ({ user: { token } }) => !token,
   allowRedirectBack: false,
   wrapperDisplayName: 'noAuthenticated',
 });

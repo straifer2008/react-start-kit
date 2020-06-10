@@ -1,7 +1,7 @@
 import reducer from './reducer';
 import * as userAction from './action';
 import * as userOperation from './operation';
-import * as userTypes from './types';
+import userTypes from './types';
 
 export {
   userAction,

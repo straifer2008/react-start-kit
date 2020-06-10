@@ -11,17 +11,17 @@ import routeList from '../RouteList';
 import { desktopDropItems, mobileDropItems } from '../dropdownItems';
 import useWindowSize from '../../utils/helpers/useWindowSize';
 
-const Wrap = ({ logout }) => {
+const Wrap = ({ logoutHandler }) => {
   const [dropdownItems, setDropdownItems] = useState(desktopDropItems);
   const [width] = useWindowSize();
 
   useEffect(() => {
     if (width <= 768 && width !== 0) {
-      setDropdownItems([...mobileDropItems, { title: 'Logout', to: logout, id: 6 }]);
+      setDropdownItems([...mobileDropItems, { title: 'Logout', to: logoutHandler, id: 6 }]);
     } else {
-      setDropdownItems([...desktopDropItems, { title: 'Logout', to: logout, id: 6 }]);
+      setDropdownItems([...desktopDropItems, { title: 'Logout', to: logoutHandler, id: 6 }]);
     }
-  }, [width, logout]);
+  }, [width, logoutHandler]);
 
   return (
     <div className="Wrap">
@@ -79,7 +79,7 @@ const Wrap = ({ logout }) => {
 };
 
 Wrap.propTypes = {
-  logout: PropTypes.func.isRequired,
+  logoutHandler: PropTypes.func.isRequired,
 };
 
 export default Wrap;

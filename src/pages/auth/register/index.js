@@ -1,7 +1,11 @@
 import { compose } from 'recompose';
+import { connect } from 'react-redux';
 import { withFormik } from 'formik';
 import * as yup from 'yup';
+import { userOperation } from '../../../store/user';
 import Register from './register';
+
+const mapDispatchToProps = { register: userOperation.register };
 
 const validator = yup.object().shape({
   firstName: yup.string().min(2, 'Min. length 2').required('Required'),
@@ -11,12 +15,18 @@ const validator = yup.object().shape({
 });
 
 const enhance = compose(
+	connect(null, mapDispatchToProps),
   withFormik({
 	  mapPropsToValues: () => ({
       firstName: '', lastName: '', email: '', password: '', check: false,
     }),
 	  validationSchema: validator,
-    handleSubmit: (values) => console.log(values),
+    handleSubmit: (values, { props: { register } }) => {
+	    register({
+		    email: values.email,
+		    password: values.password,
+	    });
+    },
   }),
 );
 export default enhance(Register);

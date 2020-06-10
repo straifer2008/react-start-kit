@@ -1,17 +1,12 @@
-import { compose, withHandlers } from 'recompose';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { withFormik } from 'formik';
 import * as yup from 'yup';
-import { userAction } from '../../../store/user';
+import { userOperation } from '../../../store/user';
 import Login from './login';
+import apiUrls from '../../../constants/apiUrls';
 
-const mapDispatchToProps = { login: userAction.login };
-
-const loginHandler = ({ login }) => ({ email, password }) => login({
-  id: 1,
-  name: email,
-  surName: password,
-});
+const mapDispatchToProps = { login: userOperation.login };
 
 const validator = yup.object().shape({
   email: yup.string()
@@ -25,11 +20,15 @@ const validator = yup.object().shape({
 
 const enhance = compose(
   connect(null, mapDispatchToProps),
-  withHandlers({ loginUser: loginHandler }),
   withFormik({
-    mapPropsToValues: () => ({ email: '', password: '' }),
+    mapPropsToValues: () => ({
+      email: apiUrls.defaultCredentials.email,
+      password: apiUrls.defaultCredentials.password,
+    }),
     validationSchema: validator,
-    handleSubmit: (values, { props: { loginUser } }) => loginUser(values),
+    handleSubmit: (values, { props: { login } }) => {
+      login(values);
+    },
     displayName: 'LoginForm',
   }),
 );
